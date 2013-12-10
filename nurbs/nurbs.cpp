@@ -391,9 +391,9 @@ NurbsSurface<T,3> NurbsCurve<T,N>::drawAaImg(Image_Color& Img, const Color& colo
   T du,dv ;
   // compute a coarse distance for the curve
   Point_nD<T,N> a,b,c ;
-  a = pointAt(0.0) ;
-  b = pointAt(0.5) ;
-  c = pointAt(1.0) ;
+  a = this->pointAt(0.0) ;
+  b = this->pointAt(0.5) ;
+  c = this->pointAt(1.0) ;
 
   T distance = norm(b-a) + norm(c-b) ;
 
@@ -2396,7 +2396,7 @@ void NurbsCurve<T,N>::projectTo(const Point_nD<T,N>& p, T guess, T& u, Point_nD<
       r = c ;
       return ;
     }
-    c = pointAt(u) ;
+    c = this->pointAt(u) ;
     deriveAt(u,2,Cd) ;
     cd = Cd[1] ;
     cdd = Cd[2] ;
@@ -5240,7 +5240,7 @@ BasicList<Point_nD<T,N> > NurbsCurve<T,N>::tesselate(T tolerance,BasicList<T> *u
 
     for(i=0;i<n;++i){
       u = (U[U.n()-deg_-1]-U[deg_])*T(i)/T(n-1) + U[deg_] ;
-      list.add(pointAt(u)) ;
+      list.add(this->pointAt(u)) ;
       if(uk)
 	uk->add(u) ;
     }

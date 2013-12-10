@@ -72,7 +72,7 @@ public:
   int read(ifstream &fin) ;
 
   void modSurfCPby(int i, const HPoint_nD<T,N>& a) 
-    { P[i] +=  a / maxU[i] ;  }
+    { this->P[i] +=  a / maxU[i] ;  }
   void modSurfCP(int i, const HPoint_nD<T,N>& a) 
     { modSurfCPby(i,a-surfP(i)) ;  }
 
@@ -84,7 +84,7 @@ public:
     { return maxAt_[i] ; }
 
   HPoint_nD<T,N> surfP(int i) const 
-    { return hpointAt(maxAt_[i]) ; }
+    { return this->hpointAt(maxAt_[i]) ; }
 
   void updateMaxU() ;
 

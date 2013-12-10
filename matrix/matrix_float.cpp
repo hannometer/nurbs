@@ -26,7 +26,8 @@
 #include "matrix.cpp"
 
 namespace PLib {
-  
+ 
+  template <>
   void Matrix<float>::qSort(){
     qsort((char*)m,rows()*cols(),sizeof(float),compareFloat) ;
   }

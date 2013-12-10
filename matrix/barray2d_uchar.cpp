@@ -27,6 +27,7 @@
 
 namespace PLib {
 
+template <>
 ostream& 
 Basic2DArray<unsigned char>::print(ostream& os) const
 {

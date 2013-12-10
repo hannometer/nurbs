@@ -24,15 +24,19 @@ namespace PLib {
   
   template class InterPoint<double,2> ;
   template class InterPoint<double,3> ;
-  
-  template class BasicList<InterPoint<double,2> > ; 
-  template class BasicList<InterPoint<double,3> > ; 
-  
+
+}
+
+template class BasicList<PLib::InterPoint<double,2> > ; 
+template class BasicList<PLib::InterPoint<double,3> > ; 
+
+namespace PLib {
+
   template class ParaSurface<double,2> ;
   template class ParaSurface<double,3> ;
   
-  template void intersectSurfaces(const ParaSurface<double,2>&, const ParaSurface<double,2>&, BasicList<InterPoint<double,2> >&, int, double, double, double, double) ;
-  template void intersectSurfaces(const ParaSurface<double,3>&, const ParaSurface<double,3>&, BasicList<InterPoint<double,3> >&, int, double, double, double, double) ;
+  template void intersectSurfaces(const ParaSurface<double,2>&, const ParaSurface<double,2>&, ::BasicList<InterPoint<double,2> >&, int, double, double, double, double) ;
+  template void intersectSurfaces(const ParaSurface<double,3>&, const ParaSurface<double,3>&, ::BasicList<InterPoint<double,3> >&, int, double, double, double, double) ;
   
 #endif 
 

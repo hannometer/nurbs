@@ -27,6 +27,7 @@
 
 namespace PLib {
 
+  template <>
   double
     Matrix<HPoint3Df>::norm(void) {
     int i,j ;
@@ -58,6 +59,7 @@ namespace PLib {
   }
   
   
+  template <>
   double
     Matrix<HPoint3Dd>::norm(void) {
     int i,j ;
@@ -89,6 +91,7 @@ namespace PLib {
   }
   
   
+  template <>
   double
     Matrix<HPoint2Df>::norm(void) {
     int i,j ;
@@ -119,6 +122,7 @@ namespace PLib {
     return sqrt(maxsum);
   }
   
+  template <>
   double
     Matrix<HPoint2Dd>::norm(void) {
     int i,j ;

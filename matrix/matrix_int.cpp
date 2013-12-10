@@ -29,10 +29,12 @@
 
 namespace PLib {
 
+  template <>
   void Matrix<int>::qSort(){
     qsort((char*)m,rows()*cols(),sizeof(int),compareInt) ;
   }
-  
+ 
+  template <>
   Matrix<int>&
     Matrix<int>::operator*=(double a)
     {
@@ -46,6 +48,7 @@ namespace PLib {
       return *this ;
     }
   
+  template <>
   Matrix<int>&
     Matrix<int>::operator+=(double a)
     {
@@ -57,6 +60,7 @@ namespace PLib {
       return *this ;
     }
 
+  template <>
   Matrix<int>&
     Matrix<int>::operator-=(double a)
     {
@@ -68,6 +72,7 @@ namespace PLib {
       return *this ;
     }
   
+  template <>
   Matrix<int>&
     Matrix<int>::operator/=(double a)
     {

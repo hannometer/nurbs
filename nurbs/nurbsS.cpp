@@ -3762,12 +3762,12 @@ int NurbsSurface<T,N>::writePOVRAY(const char *filename, const Color& col, const
   // we use and angle of 36 to view the object
   // and position the rest according to this.
   Point_nD<T,N> minP, maxP ;
-  minP.x() = extremum(1,coordX) ;
-  minP.y() = extremum(1,coordY) ;
-  minP.z() = extremum(1,coordZ) ;
-  maxP.x() = extremum(0,coordX) ;
-  maxP.y() = extremum(0,coordY) ;
-  maxP.z() = extremum(0,coordZ) ;
+  minP.x() = this->extremum(1,coordX) ;
+  minP.y() = this->extremum(1,coordY) ;
+  minP.z() = this->extremum(1,coordZ) ;
+  maxP.x() = this->extremum(0,coordX) ;
+  maxP.y() = this->extremum(0,coordY) ;
+  maxP.z() = this->extremum(0,coordZ) ;
 
   Point_nD<T,N> lookAt  ;
   lookAt.x() = (minP.x()+maxP.x())/2.0 ;
@@ -3860,12 +3860,12 @@ int NurbsSurface<T,N>::writePOVRAY(T tolerance, const char *filename, const Colo
   // we use and angle of 36 to view the object
   // and position the rest according to this.
   Point_nD<T,N> minP, maxP ;
-  minP.x() = extremum(1,coordX) ;
-  minP.y() = extremum(1,coordY) ;
-  minP.z() = extremum(1,coordZ) ;
-  maxP.x() = extremum(0,coordX) ;
-  maxP.y() = extremum(0,coordY) ;
-  maxP.z() = extremum(0,coordZ) ;
+  minP.x() = this->extremum(1,coordX) ;
+  minP.y() = this->extremum(1,coordY) ;
+  minP.z() = this->extremum(1,coordZ) ;
+  maxP.x() = this->extremum(0,coordX) ;
+  maxP.y() = this->extremum(0,coordY) ;
+  maxP.z() = this->extremum(0,coordZ) ;
 
   Point_nD<T,N> lookAt  ;
   lookAt.x() = (minP.x()+maxP.x())/2.0 ;
@@ -4045,12 +4045,12 @@ int NurbsSurface<T,N>::writeRIB(const char* filename, const Color& col, const Po
   }
 
   Point_nD<T,N> minP, maxP ;
-  minP.x() = extremum(1,coordX) ;
-  minP.y() = extremum(1,coordY) ;
-  minP.z() = extremum(1,coordZ) ;
-  maxP.x() = extremum(0,coordX) ;
-  maxP.y() = extremum(0,coordY) ;
-  maxP.z() = extremum(0,coordZ) ;
+  minP.x() = this->extremum(1,coordX) ;
+  minP.y() = this->extremum(1,coordY) ;
+  minP.z() = this->extremum(1,coordZ) ;
+  maxP.x() = this->extremum(0,coordX) ;
+  maxP.y() = this->extremum(0,coordY) ;
+  maxP.z() = this->extremum(0,coordZ) ;
 
   Point_nD<T,N> lookAt  ;
   lookAt.x() = (minP.x()+maxP.x())/2.0 ;
@@ -4082,16 +4082,15 @@ int NurbsSurface<T,N>::writeRIB(const char* filename, const Color& col, const Po
 
   char front[1024] ;
 
-  char *ext ;
-  ext = strstr(filename,".rib") ;
+  const char* ext = strstr(filename,".rib") ;
   if(ext){
     for(i=0;i<1024;++i){
       if(&filename[i] == ext)
-	break ;
+        break ;
       else
 	front[i] = filename[i] ;
       if(!front[i])
-	break ;
+        break ;
     }
   }
   else{
@@ -4715,7 +4714,7 @@ int NurbsSurface<T,N>::writeOOGL(const char* filename,
   T u,v;
   for (u = fBu; u<fEu+fDu/2; u+=fDu)
     for (v = fBv; v<fEv+fDv/2; v+=fDv){
-      Sp = pointAt(u,v);
+      Sp = this->pointAt(u,v);
       Np = normal(u,v);
       Np = (norm(Np)!=0)?Np.unitLength():Point_nD<T,N>(0.0);
       fout << "\t" << Sp << "\t " << Np << endl;
@@ -4829,7 +4828,7 @@ int NurbsSurface<T,N>::writeDisplayQUADMESH(const char* filename, int iNu,int iN
     for (u = 0; u<1-fDu/2; u+=fDu){
       // The change in sign and the swap of y and z coordinates is
       // for conversion to MINC format.
-      Sp = -(T)1.0 * pointAt(u,v) ;
+      Sp = -(T)1.0 * this->pointAt(u,v) ;
       fout << Sp.x() << ' ' << Sp.z() << ' ' << Sp.y() << endl;
     }
 

@@ -105,8 +105,8 @@ namespace PLib {
       
       // Basis functions
       T basisFun(T u, int i, int p=-1) const ;
-      void basisFuns(T u, int span, Vector<T>& N) const ;
-      void dersBasisFuns(int n,T u, int span, Matrix<T>& N) const;
+      void basisFuns(T u, int span, Vector<T>& Nv) const ;
+      void dersBasisFuns(int n,T u, int span, Matrix<T>& Nv) const;
       
       // Knot functions
       T minKnot() const //! the minimal value for the knot vector

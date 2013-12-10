@@ -27,6 +27,7 @@
 
 namespace PLib {
   
+  template <>
   void Matrix<double>::qSort(){
     qsort((char*)m,rows()*cols(),sizeof(double),compareDouble) ;
   }

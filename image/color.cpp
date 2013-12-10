@@ -50,6 +50,7 @@ namespace PLib {
   Color blackColor(0,0,0) ;
   */
 
+  template <>
   double
     Matrix<Color>::norm(void) {
 #ifdef USE_EXCEPTION
@@ -63,6 +64,7 @@ namespace PLib {
   }
 
 #ifndef USING_VCC
+  template <>
   int Matrix<Color>::read(char* filename,int r, int c) {
     ifstream fin(filename) ;
     if(!fin) {
@@ -89,6 +91,7 @@ namespace PLib {
   }
 #endif
 
+  template <>
   int Vector<Color>::minIndex() const {
 #ifdef USE_EXCEPTION
     throw MatrixErr() ;
