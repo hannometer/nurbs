@@ -2590,7 +2590,7 @@ int ObjectListGL::read(const char* filename){
   if(!fin)
     return 0 ;
   fin.clear() ;
-  fin.seekg(0,ios::beg) ;
+  fin.seekg(0,std::ios::beg) ;
 
   char *type ;
   type = new char[3] ;
