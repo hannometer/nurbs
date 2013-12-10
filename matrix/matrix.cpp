@@ -127,7 +127,7 @@ void Matrix<T>::submatrix(int sr, int sc, Matrix<T> &a)
 #ifdef COLUMN_ORDER
   for ( i = a.rows()-1; i >= 0; --i )
     for(j=a.cols()-1;j>=0;--j)
-      elem(i+rwz,j+coz) = a(i,j) ;
+      this->elem(i+rwz,j+coz) = a(i,j) ;
 #else
   T *ptr, *aptr ;
   aptr = a.m - 1;
@@ -172,7 +172,7 @@ void Matrix<T>::as(int rw, int cl, Matrix<T>& a)
 #ifdef COLUMN_ORDER
   for(i=0;i<a.rows();++i)
     for(j=0;j<a.cols();++j)
-      elem(i+rw,j+cl) = a(i,j) ;
+      this->elem(i+rw,j+cl) = a(i,j) ;
 #else
   T *pptr,*aptr ;
   aptr = a.m-1 ;
@@ -223,7 +223,7 @@ Matrix<T> Matrix<T>::get(int rw, int cl, int nr, int nc) const
 #ifdef COLUMN_ORDER
   for(i=0;i<nr;++i)
     for(j=0;j<nc;++j)
-      getmat(i,j) = elem(i+rw,j+cl) ;
+      getmat(i,j) = this->elem(i+rw,j+cl) ;
 #else
   T *pptr,*aptr ;
   aptr = getmat.m-1;
